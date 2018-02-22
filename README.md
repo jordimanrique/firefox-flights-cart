@@ -1,1 +1,3 @@
-# firefox-flights-cart
+# INITIALIZATION
+
+`npm install`
