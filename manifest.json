@@ -14,10 +14,10 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://*/carrito/procesar_compra/*"],
+      "matches": ["https://*/carrito*"],
       "js": [
         "node_modules/jquery/dist/jquery.min.js",
-        "content_scripts/prova.js"
+        "content_scripts/content_script.js"
       ]
     }
   ]
