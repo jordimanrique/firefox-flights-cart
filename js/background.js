@@ -14,3 +14,30 @@
 //         ]);
 //     });
 // });
+
+const URL_RULE_PATH = '/carrito/procesar_compra';
+
+// browser.runtime.onInstalled.addListener(() => {
+//     browser.decla
+//     }
+// );
+
+// function checkUrl(tab) {
+//     console.log(tab.url);
+// }
+//
+// function tabChanged(tabId, changeInfo, tab) {
+//     browser.tabs.get(tabId).then(checkUrl);
+// }
+//
+// browser.tabs.onActivated.addListener(tabChanged);
+//
+// browser.tabs.onUpdated.addListener(tabChanged);
+
+// browser.tabs.getCurrent().then(
+//     enableAddon()
+// );
+
+// browser.browserAction.disable();
+
+

@@ -39,10 +39,7 @@ function sendMessageToTabs(tabs) {
                 type: 'COMMAND',
                 payload: 'change-userDefault'
             }
-        ).then(response => {
-            console.log("Message from the content script:");
-            console.log(response.response);
-        }).catch(onError);
+        ).catch(onError);
     }
 }
 
