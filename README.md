@@ -1,3 +1,2 @@
 # INITIALIZATION
 
-`npm install`
