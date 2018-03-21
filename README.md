@@ -19,7 +19,13 @@ In the case you need to build a new packed version of the WebExtension, you only
 On the other hand, if you want to build a signed package, you need to have an active user in [firefox developers site](https://addons.mozilla.org/es/developers/).
 For this add-on it has been used the user jordi.manrique@atrapalo.com with its API credentials. Then, you only has to execute the order:
 
-    web-ext sign --api-key=user:13883156:919 --api-secret=5235ca3fe1ccdc0d3d8032d64a3376d583030a3bf07b118c5b23bd72519de117 
+    web-ext sign --api-key=user:13883156:919 --api-secret=5235ca3fe1ccdc0d3d8032d64a3376d583030a3bf07b118c5b23bd72519de117
+    
+    
+The packages built are in web-ext-artifacts folder:
+
+    - Regular build: atrapalo_cart-version.zip
+    - Signed build:  atrapalo_cart-version.xpi
 
 
  
