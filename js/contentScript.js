@@ -1,8 +1,6 @@
 
 const storage = browser.storage.local;
 
-console.log('carrito firefox extension');
-
 const VIVACOLOMBIA_NAME = 'PRUEBA';
 const VIVACOLOMBIA_SURNAME = 'PRUEBA';
 
@@ -92,8 +90,8 @@ browser.runtime.onMessage.addListener(message => {
 });
 
 function checkVivaColombia() {
-    return $('span[class="companyia-segmento"][title="VivaColombia"]').length > 0 ||
-        $('span[class="companyia-segmento"][title="Viva Air Peru"]').length > 0
+    return $('span[class="companyia-segmento"][title*="Viva Air Colombia"]').length > 0 ||
+        $('span[class="companyia-segmento"][title*="Viva Air Peru"]').length > 0
 }
 
 function fillForm() {
