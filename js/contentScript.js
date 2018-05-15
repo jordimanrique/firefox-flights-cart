@@ -3,6 +3,9 @@ const storage = browser.storage.local;
 
 console.log('carrito firefox extension');
 
+const VIVACOLOMBIA_NAME = 'PRUEBA';
+const VIVACOLOMBIA_SURNAME = 'PRUEBA';
+
 const CP = '08021';
 const ADDRESS = 'Calle aribau 185, 1a';
 const PHONE = '+34 646 64 64 64';
@@ -29,8 +32,9 @@ const NAMES = [
 
 let userDefault = {
     gender: 'mr',
-    name: 'Jordi',
-    email: 'jordi.manrique@atrapalo.com'
+    name: 'DT Vuelos',
+    email: 'dt_vuelos@atrapalo.com',
+    surname: SURNAME
 };
 
 let active = false;
@@ -55,13 +59,18 @@ function refreshDefaultUserData(item) {
 }
 
 function refreshDefaultUser(user) {
-  if (user) {
-    userDefault.gender = user.gender;
-    userDefault.name = user.name;
-    userDefault.email = user.email;
-  }
 
-  active = user.active === 'on';
+    if (user) {
+        userDefault.gender = user.gender;
+        userDefault.name = user.name;
+        userDefault.email = user.email;
+    }
+    if (checkVivaColombia()) {
+        userDefault.name = VIVACOLOMBIA_NAME;
+        userDefault.surname = VIVACOLOMBIA_SURNAME;
+    }
+
+    active = user.active === 'on';
 }
 
 function getDataFormStorage() {
@@ -81,6 +90,11 @@ browser.runtime.onMessage.addListener(message => {
         }
     }
 });
+
+function checkVivaColombia() {
+    return $('span[class="companyia-segmento"][title="VivaColombia"]').length > 0 ||
+        $('span[class="companyia-segmento"][title="Viva Air Peru"]').length > 0
+}
 
 function fillForm() {
 
@@ -103,7 +117,7 @@ function fillForm() {
       $('#mp2_poblacion_reg').val(CITY);
       $('#mp2_regione_reg').val('1').trigger('change');
       $('#mp2_movil_reg').val(PHONE);
-      $('#mp2_apellidos_reg').val(SURNAME);
+      $('#mp2_apellidos_reg').val(userDefault.surname);
 
       $('#check_addons_rechaza').prop("checked", true);
       $('#check_seguro_cancelacion_rechaza').prop("checked", true);
@@ -167,7 +181,7 @@ function fillUserInfo(index, userInfo) {
     $('#mp3_num_documento_' + index).val(Math.floor(Math.random()*100000000));
 
     setTimeout(() => {
-        $('#mp3_apellidos_' + index).val(SURNAME).trigger('click');
+        $('#mp3_apellidos_' + index).val(userInfo.surname).trigger('click');
     }, 1000);
 }
 

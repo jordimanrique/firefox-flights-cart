@@ -17,7 +17,8 @@ In the case you need to build a new packed version of the WebExtension, you only
     web-ext build
 
 On the other hand, if you want to build a signed package, you need to have an active user in [firefox developers site](https://addons.mozilla.org/es/developers/).
-For this add-on it has been used the user jordi.manrique@atrapalo.com with its API credentials. Then, you only has to execute the order:
+For this add-on it has been used the user jordi.manrique@atrapalo.com with its API credentials. 
+Then, you only have to execute the order, but with the correct api-key and api-secret:
 
     web-ext sign --api-key=user:13883156:919 --api-secret=5235ca3fe1ccdc0d3d8032d64a3376d583030a3bf07b118c5b23bd72519de117
     
